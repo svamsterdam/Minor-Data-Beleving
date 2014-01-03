@@ -1,0 +1,119 @@
+#wrapper {
+	width: 750px;
+	height: 605px;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#titelWrapper {
+	width: 750px;
+	height: 135px;
+	margin: auto;
+	margin-bottom: 5px;
+	background-color: #ede7d3;
+}
+
+#legenda {
+	width: 750px;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(../img/legenda.png);
+}
+
+#balkWrapper {
+	width: 750px;
+	height: 255px;
+	margin: auto;
+	margin-bottom: 5px;
+	background-color: #ede7d3;
+}
+
+#donutWrapper {
+	width: 750px;
+	height: 205px;
+	margin: auto;
+	background-color: #ede7d3;
+	position: relative;
+}
+
+#textWrapper1 {
+	width: 750px;
+	height: 90px;
+}
+
+#textWrapper2 {
+	width: 40px;
+	height: 255px;
+	margin-left: 25px;
+	position: absolute;
+}
+
+#textWrapper3 {
+	width: 750px;
+	height: 30px;
+	position: absolute;
+	float: left;
+	bottom: 0;
+}
+
+.donut { 
+	width: 150px;
+	padding-top: 15px;
+	margin-left: 30px;
+	float: left;
+	position: relative;
+}
+
+.balken {
+	width: 670px;
+	margin-top: 15px;
+	float: right;
+	position: relative;
+}
+
+#textWrapper1 h2 {
+	width: 750px;
+	height: 30;
+	padding-top: 12px;
+	margin: auto;
+	color: #77625b;
+	font-family: arial, sans-serif;
+	text-align: center;
+}
+
+#textWrapper1 p {
+	width: 700px;
+	padding-top: 5px;
+	margin: auto;
+	font-size: 17px;
+	font-family: arial, sans-serif;
+	text-align: center;
+	color: #77625b;
+}
+
+#textWrapper2 p {
+	width: 40px;
+	height: 20px;
+	margin-top: 25px;
+	margin-bottom: 41px;
+	font-size: 17px;
+	font-family: arial, sans-serif;
+	text-align: center;
+	color: #77625b;
+	position: relative;
+}
+
+#textWrapper3 p {
+	width: 40px;
+	margin: auto;
+	padding-left: 85px;
+	padding-right: 56px;
+	font-size: 17px;
+	font-family: arial, sans-serif;
+	text-align: center;
+	color: #77625b;
+	float: left;
+}

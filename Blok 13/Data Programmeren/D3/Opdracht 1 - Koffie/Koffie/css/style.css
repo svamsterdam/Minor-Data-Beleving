@@ -1,0 +1,63 @@
+#buttons {
+	width: 110px;
+	height: 283px;
+	margin-top: 60px;
+	margin-left: 250px;
+	position: absolute;
+}
+
+#donutChart { 
+	width: 400px;
+	margin: 100px auto;
+	position: relative;
+}
+
+#legenda {
+	width: 190px;
+	height: 200px;
+	float: right;
+	margin-top: 95px;
+	margin-right: 175px;
+}
+
+#linksBlokje {
+	width: 20px;
+	height: 20px;
+	background-color: #3aafd5;
+	margin-top: 65px;
+}
+
+#rechtsBlokje {
+	width: 20px;
+	height: 20px;
+	background-color: #93e22d;
+	margin-top: 20px;
+}
+
+p {
+	width: 150px;
+	padding-top: 1px;
+	margin-left: 30px;
+	font-size: 15px;
+	font-family: arial, sans-serif;
+	color: #555;
+}
+
+a { 
+	display: block;
+	width: 100px;
+	padding: 5px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-family: arial, sans-serif;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	background-color: #bbb;
+	border-radius: 5px;
+	position: relative;
+}
+
+a:hover {
+	color: #444;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Verschil koffie automaten</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/d3.v3.min.js"></script>
+	</head>
+
+	<body>
+        <div id="legenda">
+            <div id="linksBlokje"><p>Automaat Links</p></div>
+            <div id="rechtsBlokje"><p>Automaat Rechts</p></div>
+        </div>
+		<div id="buttons">
+			<div id="koffieButton"><a style="background-color:#ddd; color: #555">Koffie</a></div>
+			<div id="espressoButton"><a>Espresso</a></div>
+			<div id="cappuccinoButton"><a>Cappuccino</a></div>
+			<div id="warmechocoButton"><a>Warme Choco</a></div>
+			<div id="warmwaterButton"><a>Warm Water</a></div>
+			<div id="overigButton"><a>Overig</a></div>
+		</div>
+		<div id="donutChart"></div>
+
+		<script type ="text/javascript">
+
+		var dataset = {
+			left: {
+				koffie : 63,
+				espresso : 36,
+				cappuccino : 31,
+				warmechoco : 9,
+				warmwater : 0,
+				overig : 9
+			},
+			right: {
+				koffie : 134,
+				espresso : 88,
+				cappuccino : 31,
+				warmechoco : 4,
+				warmwater : 2,
+				overig : 20
+			}
+		};
+
+		var data_koffie = [dataset.right.koffie, dataset.left.koffie],
+            data_espresso = [dataset.right.espresso, dataset.left.espresso],
+            data_cappuccino = [dataset.right.cappuccino, dataset.left.cappuccino],
+            data_warmechoco = [dataset.right.warmechoco, dataset.left.warmechoco],
+            data_warmwater = [dataset.right.warmwater, dataset.left.warmwater],
+            data_overig = [dataset.right.overig, dataset.left.overig],
+            data = data_koffie;
+        
+        var w = 400,
+            h = 400,
+            r = 200,
+            ir = 100,
+            color = d3.scale.category20c().domain([22, 162]).range(["#93e22d", "#3aafd5"]),
+            donut = d3.layout.pie().sort(null),
+            arc = d3.svg.arc().innerRadius(ir).outerRadius(r);
+        
+        var svg = d3.select("#donutChart").append("svg:svg")
+	            .attr("width", w)
+	            .attr("height", h)
+        	.append("svg:g")
+            	.attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+        
+        var arcs = svg.selectAll("path")
+            .data(donut(data))
+            	.enter().append("svg:path")
+	                .attr("fill", function(d, i) { return color(i); })
+	                .attr("d", arc)
+	                .each(function(d) { this._current = d; });
+        
+        $("#koffieButton").click(function(){
+            if(data != data_koffie) {
+            	data = data_koffie;
+            	arcs = arcs.data(donut(data));
+            	arcs.transition().duration(750).attrTween("d", arcTween);
+            }
+            $("#buttons a").css({"background-color": "", "color": ""});
+            $(this).children('a').css({"background-color": "#ddd", "color": "#555"});           
+        });
+
+        $("#espressoButton").click(function() {
+        	if(data != data_espresso) {
+        		data = data_espresso;
+        		arcs = arcs.data(donut(data));
+            	arcs.transition().duration(750).attrTween("d", arcTween);
+        	}
+        	$("#buttons a").css({"background-color": "", "color": ""});
+        	$(this).children('a').css({"background-color": "#ddd", "color": "#555"});
+        });
+
+        $("#cappuccinoButton").click(function() {
+        	if(data != data_cappuccino) {
+        		data = data_cappuccino;
+        		arcs = arcs.data(donut(data));
+            	arcs.transition().duration(750).attrTween("d", arcTween);
+        	}
+        	$("#buttons a").css({"background-color": "", "color": ""});
+        	$(this).children('a').css({"background-color": "#ddd", "color": "#555"});
+        });
+
+        $("#warmechocoButton").click(function() {
+        	if(data != data_warmechoco) {
+        		data = data_warmechoco;
+        		arcs = arcs.data(donut(data));
+            	arcs.transition().duration(750).attrTween("d", arcTween);
+        	}
+        	$("#buttons a").css({"background-color": "", "color": ""});
+        	$(this).children('a').css({"background-color": "#ddd", "color": "#555"});
+        });
+
+        $("#warmwaterButton").click(function() {
+        	if(data != data_warmwater) {
+        		data = data_warmwater;
+        		arcs = arcs.data(donut(data));
+            	arcs.transition().duration(750).attrTween("d", arcTween);
+        	}
+        	$("#buttons a").css({"background-color": "", "color": ""});
+        	$(this).children('a').css({"background-color": "#ddd", "color": "#555"});
+        });
+
+        $("#overigButton").click(function() {
+        	if(data != data_overig) {
+        		data = data_overig;
+        		arcs = arcs.data(donut(data));
+            	arcs.transition().duration(750).attrTween("d", arcTween);
+        	}
+        	$("#buttons a").css({"background-color": "", "color": ""});
+        	$(this).children('a').css({"background-color": "#ddd", "color": "#555"});
+        }); 
+        
+        function arcTween(a) {
+        	var i = d3.interpolate(this._current, a);
+        	this._current = i(0);
+        	return function(t) {
+        		return arc(i(t));
+        	};
+        }
+		</script>
+	</body>
+</html>

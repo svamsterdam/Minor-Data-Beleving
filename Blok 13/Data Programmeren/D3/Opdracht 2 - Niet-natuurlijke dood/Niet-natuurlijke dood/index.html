@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vergelijking niet-natuurlijke doden</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/d3.v3.min.js"></script>
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div id="titelWrapper">
+				<div id="textWrapper1">
+					<h2>Vergelijking aantal niet-natuurlijke doden</h2>
+					<p>In onderstaande visualisaties is het verschil van het aantal niet-natuurlijke doden van drie verschillende leeftijdscategorie&eumln van vier perioden weergegeven.</p>
+				</div>
+				<div id="legenda"></div>
+			</div>
+			<div id="balkWrapper">
+				<div id="textWrapper2">
+					<p>2008</p>
+					<p>2009</p>
+					<p>2010</p>
+					<p>2011</p>
+				</div>
+				<div id="balken2008" class="balken"></div>
+				<div id="balken2009" class="balken"></div>
+				<div id="balken2010" class="balken"></div>
+				<div id="balken2011" class="balken"></div>
+			</div>
+			<div id="donutWrapper">
+				<div id="donut2008" class="donut"></div>
+				<div id="donut2009" class="donut"></div>
+				<div id="donut2010" class="donut"></div>
+				<div id="donut2011" class="donut"></div>
+				<div id="textWrapper3">
+					<p>2008</p>
+					<p>2009</p>
+					<p>2010</p>
+					<p>2011</p>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+
+			// Variabelen voor het gebruik van de data.
+			var c1 = [343, 348, 335, 379],
+				c2 = [597, 641, 646, 621],
+				c3 = [2064, 2186, 2326, 2389],
+
+				// Data variabelen voor de donut charts.
+				donutJaar1 = [c3[0], c2[0], c1[0]],
+				donutJaar2 = [c3[1], c2[1], c1[1]],
+				donutJaar3 = [c3[2], c2[2], c1[2]],
+				donutJaar4 = [c3[3], c2[3], c1[3]],
+
+				// Data variabelen voor de bar charts.
+				balkJaar1 = [c1[0], c2[0], c3[0]],
+				balkJaar2 = [c1[1], c2[1], c3[1]],
+				balkJaar3 = [c1[2], c2[2], c3[2]],
+				balkJaar4 = [c1[3], c2[3], c3[3]];
+
+			// Functie voor de donut charts.
+			function makeDonut(container, dataset) {
+				var w = 150,
+		            h = 150,
+		            r = 75,
+		            ir = 25,
+		            donut = d3.layout.pie().sort(null),
+		            arc = d3.svg.arc().innerRadius(ir).outerRadius(r);
+	        
+		        var svg = d3.select(container).append("svg:svg")
+			            .attr("width", w)
+			            .attr("height", h)
+		        	.append("svg:g")
+		            	.attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+		        
+		        var arcs = svg.selectAll("path")
+		            .data(donut(dataset))
+		            	.enter().append("svg:path")
+			                .attr("fill", function(d, i) {
+			                	if(i == 0) return "#ff9999";
+								if(i == 1) return "#ffb399";
+								if(i == 2) return "#ffcc99";
+			                })
+			                .attr("d", arc)
+			                .each(function(d) { this._current = d; });
+			};
+
+			// Functie voor de bar charts.
+			function makeBalken(container, dataset) {
+				var w = 640,
+					h = 40;
+
+				var widthScale = d3.scale.linear()
+					.domain([0, 2389])
+					.range([0, w]);
+
+				var svg = d3.select(container).append("svg:svg")
+					.attr("width", w)
+					.attr("height", h);
+
+				var balken = svg.selectAll("rect")
+					.data(dataset)
+					.enter()
+						.append("rect")
+						.attr("width", function(d) { return widthScale(d); })
+						.attr("height", 12)
+						.attr("y", function(d, i) { return i * 14; })
+						.attr("fill", function(d, i) {
+							if(i == 0) return "#ffcc99";
+							if(i == 1) return "#ffb399";
+							if(i == 2) return "#ff9999";
+						});
+			};
+
+			// Maak de donut charts.
+			makeDonut('#donut2008', donutJaar1);
+			makeDonut('#donut2009', donutJaar2);
+			makeDonut('#donut2010', donutJaar3);
+			makeDonut('#donut2011', donutJaar4);
+
+			// Maak de bar charts.
+			makeBalken("#balken2008", balkJaar1);
+			makeBalken("#balken2009", balkJaar2);
+			makeBalken("#balken2010", balkJaar3);
+			makeBalken("#balken2011", balkJaar4);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,204 @@
+#achtergrond {
+	width: 700px;
+	height: 700px;
+	background-image: url(../img/background.png);
+	margin: auto;
+	position: relative;
+	overflow: auto;
+}
+
+#vlak1, #vlak2, #vlak3 {
+	width: 340px;
+	height: 360px;
+	position: absolute;
+	bottom: 20px;
+	opacity: 0.3;
+	display: none;
+}
+
+#intro {
+	width: 769px;
+	height: 280px;
+	background-image: url(../img/introTekst.png);
+	position: absolute;
+	top: 25px;
+	left: 300px;
+	display: none;
+}
+
+#vlak1 {
+	left: 20px;
+	background-image: url(../img/vlak1.png);
+}
+
+#vlak2 {
+	left: 380px;
+	background-image: url(../img/vlak2.png);
+}
+
+#vlak3 {
+	left: 740px;
+	background-image: url(../img/vlak3.png);
+}
+
+#vlak1:hover, #vlak2:hover, #vlak3:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+#CMlogo {
+	width: 500px;
+	height: 500px;
+	margin-top: 100px;
+	margin-left: 100px;
+	display: none;
+}
+
+#CMlogoText {
+	width: 590px;
+	height: 100px;
+	background-image: url(../img/CMtext.png);
+	position: absolute;
+	left: 55px;
+	bottom: 25px;
+	display: none;
+}
+
+#deel2 {
+	width: 1100px;
+	height: 700px;
+	background-image: url(../img/deel2.png);
+	position: absolute;
+	display: none;
+}
+
+#deel3 {
+	width: 1100px;
+	height: 700px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	display: none;
+}
+
+#terugKnop {
+	width: 30px;
+	height: 30px;
+	background-image: url(../img/terug.png);
+	position: absolute;
+	opacity: 0.5;
+	top: 10px;
+	left: 10px;
+	display: none;
+}
+
+#terugKnop:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.logos {
+	width: 250px;
+	height: 250px;
+	position: absolute;
+}
+
+#CMlogo2 {
+	top: 225px;
+	left: 425px;
+}
+
+#logoRossi {
+	left: 285px;
+	bottom: 365px;
+}
+
+#logoHotchner {
+	left: 565px;
+	bottom: 365px;
+}
+
+#logoMorgan {
+	left: 145px;
+	bottom: 225px;
+}
+
+#logoReid {
+	left: 705px;
+	bottom: 225px;
+}
+
+#logoGarcia {
+	left: 285px;
+	bottom: 85px;
+}
+
+#logoJareau {
+	left: 565px;
+	bottom: 85px;
+}
+
+#logoRossi:hover, #logoHotchner:hover, #logoMorgan:hover, #logoReid:hover, #logoGarcia:hover, #logoJareau:hover {
+	opacity: 1;
+}
+
+#namen {
+	width: 1100px;
+	height: 24px;
+	background-image: url(../img/namen.png);
+	position: absolute;
+	left: 0px;
+	bottom: 5px;
+	display: none;
+}
+
+#deel4 {
+	width: 1100px;
+	height: 550px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+#vlakLinks, #vlakRechts, #linksTest {
+	width: 550px;
+	height: 550px;
+	position: absolute;
+	display: none;
+}
+
+#vlakLinks {
+	left: 0px;
+}
+
+#vlakRechts {
+	left: 550px;
+}
+
+.actieflogo {
+	opacity: 1;
+}
+
+.nietActiefLogo {
+	opacity: 0.3;
+}
+
+circle {
+	fill: #ffffff;
+	opacity: 0.7;
+}
+
+text {
+	fill: #333333;
+	font-size: 20px;
+	font-family: helvetica;
+}
+
+circle, text {
+	display: none;
+}
+
+path, circle, rect, text {
+	cursor: pointer;
+}
